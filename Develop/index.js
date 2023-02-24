@@ -2,7 +2,7 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 
-const generateMarkdown = ({ project, description, license, dependencies, test, contribute, usage, apps }) =>
+const createMarkdown = ({ project, description, license, dependencies, test, contribute, usage, apps }) =>
 `# ${project}
 
 ## Description 
@@ -28,7 +28,7 @@ ${contribute}
 ${test}
 ## Applications Used
 ${apps}
-`
+`;
 
 inquirer
     .prompt ([
@@ -85,11 +85,10 @@ inquirer
         }
     ])
     .then ((data) => {
-         function createReadme() {
-            fs.writeFile('README.md', generateMarkdown, (err) => {
+        const readmeContent = createMarkdown(data)
+            fs.writeFile('README.md', readmeContent, (err) => {
             err ? console.log(err) : console.log('Succesfully Created Readme File!')
                 })
             }
-            createReadme();
-    });
+    );
 
