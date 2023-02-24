@@ -2,8 +2,33 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 
-const generateMarkdown = ({name, email, project, license, dependencies, test, contribute, usage}) =>
-``
+const generateMarkdown = ({ project, description, license, dependencies, test, contribute, usage, apps }) =>
+`# ${project}
+
+## Description 
+${description}
+
+## Table of Contents
+- [Installation](#installation)
+- [Usage](#usage)
+- [License](#license)
+- [Contribute](#how-to-contribute)
+- [Test](#test)
+- [Apps Used](#applications-used)
+
+## Installation 
+${dependencies}
+## Usage 
+${usage}
+## License 
+${license}
+## How to Contribute 
+${contribute}
+## Test
+${test}
+## Applications Used
+${apps}
+`
 
 inquirer
     .prompt ([
@@ -53,6 +78,11 @@ inquirer
             name: 'usage',
             message: 'What shoud the user know about using this repo?',
         },
+        {
+            type: 'input',
+            name: 'apps',
+            message: 'What applications did you use for this project?',
+        }
     ])
     .then ((data) => {
          function createReadme() {
