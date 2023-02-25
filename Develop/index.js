@@ -56,7 +56,7 @@ inquirer
             type: 'checkbox',
             message : 'What license is your project useing?',
             name: 'license',
-            choices: ['MIT', 'ISC', 'zLib-License', 'Academic-Free-License-v3'],
+            choices: ['MIT', 'ISC', 'zLib-License', 'Mozilla Public License 2.0'],
         },
         {
             type: 'input',

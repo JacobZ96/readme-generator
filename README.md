@@ -16,7 +16,7 @@ Commandline application that will take in user input data and generate a profess
 ## Usage 
 
 ## License 
-
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ## How to Contribute 
 Please do not contribute to this project. 
 
