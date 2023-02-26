@@ -96,6 +96,7 @@ inquirer
         }
     ])
     .then ((data) => {
+        console.log(data)
         const readmeContent = createMarkdown(data)
             fs.writeFile('README.md', readmeContent, (err) => {
             err ? console.log(err) : console.log('Succesfully Created Readme File!')
@@ -103,8 +104,8 @@ inquirer
             }
     );
 
-
 function renderLicenseBadge(license) {
+    console.log(license);
     switch (license) {
         case 'MIT':
             return `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)`
