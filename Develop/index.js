@@ -1,12 +1,16 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
+const licenseArr = ['MIT', 'ISC', 'zLib-License', 'Mozilla Public License 2.0'];
 
-const createMarkdown = ({ project, description, license, dependencies, test, contribute, usage, apps }) =>
+const createMarkdown = ({ name, email, project, description, license, dependencies, test, contribute, usage, apps }) =>
 `# ${project}
 
 ## Description 
 ${description}
+
+## License 
+${license}
 
 ## Table of Contents
 - [Installation](#installation)
@@ -18,16 +22,22 @@ ${description}
 
 ## Installation 
 ${dependencies}
+
 ## Usage 
 ${usage}
-## License 
-${license}
+
+
 ## How to Contribute 
 ${contribute}
+
 ## Test
 ${test}
+
 ## Applications Used
 ${apps}
+
+## Questions
+If you have any questing please contact me at ${email}, and you can find more of my work at https://github.com/${name}. 
 `;
 
 inquirer
@@ -91,4 +101,18 @@ inquirer
                 })
             }
     );
+
+
+function renderLicenseBadge(license) {
+    if (license === licenseArr[0]) {
+        return `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)`
+    } else if (license === licenseArr[1]){
+        return `[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)`
+    } else if (license === licenseArr[2]){
+        return `[![License: Zlib](https://img.shields.io/badge/License-Zlib-lightgrey.svg)](https://opensource.org/licenses/Zlib)`
+    } else if (license === license[3]){
+        return `[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)`
+    }
+};
+
 
