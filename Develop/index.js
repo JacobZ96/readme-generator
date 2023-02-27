@@ -10,8 +10,7 @@ const createMarkdown = ({ name, email, project, description, license, dependenci
 ${description}
 
 ## License 
-${license}
-${renderLicenseBadge(license)}
+[![License](https://img.shields.io/badge/License-${license}-yellow.svg)](https://opensource.org/licenses/${license})
 
 ## Table of Contents
 - [Installation](#installation)
@@ -96,7 +95,6 @@ inquirer
         }
     ])
     .then ((data) => {
-        console.log(data)
         const readmeContent = createMarkdown(data)
             fs.writeFile('README.md', readmeContent, (err) => {
             err ? console.log(err) : console.log('Succesfully Created Readme File!')
@@ -104,19 +102,19 @@ inquirer
             }
     );
 
-function renderLicenseBadge(license) {
-    console.log(license);
-    switch (license) {
-        case 'MIT':
-            return `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)`
-        case 'ISC':
-            return `[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)`
-        case 'zLib-License':
-            return `[![License: Zlib](https://img.shields.io/badge/License-Zlib-lightgrey.svg)](https://opensource.org/licenses/Zlib)`
-        case 'Mozilla Public License 2.0':
-            return `[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)`    
-        default:
-            return "";
-    }
-};
+// function renderLicenseBadge(license) {
+//     console.log(license);
+//     switch (license) {
+//         case 'MIT':
+//             return `[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)`
+//         case 'ISC':
+//             return `[![License: ISC](https://img.shields.io/badge/License-ISC-blue.svg)](https://opensource.org/licenses/ISC)`
+//         case 'zLib-License':
+//             return `[![License: Zlib](https://img.shields.io/badge/License-Zlib-lightgrey.svg)](https://opensource.org/licenses/Zlib)`
+//         case 'Mozilla Public License 2.0':
+//             return `[![License: MPL 2.0](https://img.shields.io/badge/License-MPL_2.0-brightgreen.svg)](https://opensource.org/licenses/MPL-2.0)`    
+//         default:
+//             return "";
+//     }
+// };
 
