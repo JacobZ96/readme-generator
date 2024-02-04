@@ -14,7 +14,7 @@ Commandline application that will take in user input data and generate a profess
 ## Installation 
 npm i
 ## Usage 
-use this application though the integrated terminal to generate a readme file
+Use this application though the integrated terminal to generate a readme file. To run this application type `node index.js` in the terminal. and follow the prompts.
 ## License 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ## How to Contribute 
